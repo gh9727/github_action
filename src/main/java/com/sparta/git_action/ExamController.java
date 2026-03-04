@@ -15,4 +15,9 @@ public class ExamController {
     public String getGitAction() {
         return "gitHub_Action을 사용해서 자동 배포를 성공했다!";
     }
+
+    @GetMapping("/git/action/error")
+    public String getGitActionError() {
+        return "gitHub_Action 에러나지마 ,,";
+    }
 }
