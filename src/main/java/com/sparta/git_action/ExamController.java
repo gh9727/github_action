@@ -28,4 +28,9 @@ public class ExamController {
     public String getGitActionTestSCP() {
         return "20260305 git_action SCP 테스트";
     }
+
+    @GetMapping("/git/action/prod")
+    public String getGitActionTestProd() {
+        return "20260305 git_action prod.yaml 적용 유무 테스트";
+    }
 }
