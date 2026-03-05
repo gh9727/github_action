@@ -24,4 +24,8 @@ public class ExamController {
     public String getGitActionTest() {
         return "20260305 git_action 작동 유무 테스트";
     }
+    @GetMapping("/git/action/scp")
+    public String getGitActionTestSCP() {
+        return "20260305 git_action SCP 테스트";
+    }
 }
