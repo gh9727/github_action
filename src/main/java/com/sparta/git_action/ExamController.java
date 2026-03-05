@@ -33,4 +33,8 @@ public class ExamController {
     public String getGitActionTestProd() {
         return "20260305 git_action prod.yaml 적용 유무 테스트";
     }
+    @GetMapping("/git/action/postgr")
+    public String getGitActionTestPostgr() {
+        return "20260305 postgresql db update 테스트";
+    }
 }
