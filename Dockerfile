@@ -28,9 +28,6 @@ WORKDIR /app
 # [주의] build.gradle의 프로젝트명과 버전이 파일 이름이 됩니다.
 COPY --from=builder /build/build/libs/git_action-0.0.1-SNAPSHOT.jar app.jar
 
-# 컨테이너가 사용할 포트 번호 (Spring Boot 기본 8080)
-EXPOSE 8080
-
 # 애플리케이션 실행 명령어
 # -Djava.security.egd... 는 컨테이너 환경에서 난수 생성 속도를 높여 실행을 빠르게 돕습니다.
 ENTRYPOINT ["java", "-jar", "-Djava.security.egd=file:/dev/./urandom", "app.jar"]
