@@ -19,7 +19,7 @@ services:
   api-server:
     image: 'wale12/git-action-test:latest' # 빌드 대신 이미지를 가져옵니다.
     ports:
-      - '8080:8080'
+      - '80:8080'
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/mydatabase
       - SPRING_DATASOURCE_USERNAME=myuser
