@@ -4,7 +4,7 @@ services:
     image: '${POSTGRESQL_IMAGE}'
     restart: always
     volumes:
-      - ./postgres_data:/var/lib/postgresql # 데이터 보존 필수
+        - ./postgres_data:/var/lib/postgresql:latest # 데이터 보존 필수
     environment:
       - 'POSTGRES_DB=${DB}'
       - 'POSTGRES_USER=${DB_USER}'
@@ -24,13 +24,13 @@ services:
     image: '${SERVER_IMAGE}'
     restart: always
     ports:
-      - '80:8080'
+      - '${SERVER_PORT}'
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/${DB}
+      - SPRING_DATASOURCE_URL=${DB_URL}
       - SPRING_DATASOURCE_USERNAME=${DB_USER}
       - SPRING_DATASOURCE_PASSWORD=${DB_PW}
-      - SPRING_DATA_REDIS_HOST=redis
-      - SPRING_DATA_REDIS_PORT=6379
+      - SPRING_DATA_REDIS_HOST=${REDIS_HOST}
+      - SPRING_DATA_REDIS_PORT=${REDIS_PORT}
     depends_on:
       - postgres
       - redis
