@@ -1,17 +1,16 @@
+# ${~} : GitHub Secrets에서 올 값
 services:
 
   postgres:
     image: '${POSTGRESQL_IMAGE}'
     restart: always
     volumes:
-        - ./postgres_data:/var/lib/postgresql:latest # 데이터 보존 필수
+        - ./postgres_data:/var/lib/postgresql # 데이터 저장
     environment:
       - 'POSTGRES_DB=${DB}'
       - 'POSTGRES_USER=${DB_USER}'
-      - 'POSTGRES_PASSWORD=${DB_PW}' # GitHub Secrets에서 올 값
-    # 보안을 위해 포트는 내부에서만 쓰도록 5432:5432 삭제 권장 (필요시에만 추가)
+      - 'POSTGRES_PASSWORD=${DB_PW}'
 
-  # 2. Redis 설정
   redis:
     image: '${REDIS_IMAGE}'
     restart: always
@@ -19,7 +18,6 @@ services:
     volumes:
       - ./redis_data:/data
 
-  # 3. Spring Boot API Server
   api-server:
     image: '${SERVER_IMAGE}'
     restart: always
