@@ -20,4 +20,8 @@ public class ExamController {
     public String getGitActionError() {
         return "gitHub_Action 에러나지마 ,,";
     }
+    @GetMapping("/git/action/test")
+    public String getGitActionTest() {
+        return "20260305 git_action 작동 유무 테스트";
+    }
 }
